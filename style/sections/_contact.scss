@@ -23,13 +23,12 @@
     backface-visibility: hidden;
 
     &__text {
+      padding-inline: 4rem;
       margin-bottom: 2.5rem;
     }
 
     &__text,
     a {
-      font-size: 2.4rem;
-
       // Responsive for contact text
       @include respond(phone) {
         font-size: 2rem;
