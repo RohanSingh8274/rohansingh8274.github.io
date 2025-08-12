@@ -97,18 +97,14 @@
     }
     &:hover {
       transform: scale(1.1) translateY(-2px);
-      .fa-twitter {
-        color: #00acee;
-        text-decoration: none;
-      }
       .fa-instagram {
         color: #c13584;
       }
       .fa-linkedin {
         color: #4875b4;
       }
-      .fa-codepen {
-        color: #212121;
+      .fa-drupal {
+        color: #00acee;
       }
     }
   }
