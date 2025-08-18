@@ -159,3 +159,59 @@ header {
   .input:checked + .slider:before {
     transform: translateX(30px);
   }
+
+
+  /* Hamburger menu default (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background: var(--menu-link-color);
+  margin: 4px 0;
+  transition: 0.3s ease;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hide nav links initially */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px; /* Adjust based on header height */
+    right: 0;
+    background-color: var(--first-color);
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.15);
+    z-index: 9999;
+  }
+
+  /* Show menu when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Stack nav items vertically */
+  .nav-links ul {
+    flex-direction: column;
+    transform: none;
+    top: 0;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
