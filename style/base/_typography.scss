@@ -33,11 +33,12 @@ a:hover {
   margin-left: 1rem;
   @include supportColorForIE11();
 
-  @include respond(phone) {
-    margin: 0;
-    background-image: none;
-    -webkit-text-fill-color: var(--second-color);
-    box-shadow: none;
-  }
+  // @include respond(phone) {
+  //   margin: 0;
+  //   background-image: none;
+  //   -webkit-text-fill-color: var(--second-color);
+  //   box-shadow: none;
+  //   color: var(--second-color);
+  // }
 }
 

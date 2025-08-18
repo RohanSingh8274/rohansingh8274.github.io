@@ -53,12 +53,12 @@
 
 
   // Responsive Button hero style
-  @include respond(phone) {
-    background-image: none;
-    border: 2px solid var(--second-color);
-    box-shadow: none;
-    -webkit-text-fill-color: var(--second-color);
-  }
+  // @include respond(phone) {
+  //   background-image: none;
+  //   border: 2px solid var(--second-color);
+  //   box-shadow: none;
+  //   -webkit-text-fill-color: var(--second-color);
+  // }
 
   &::after {
     height: 410%;

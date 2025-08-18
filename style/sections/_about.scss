@@ -12,9 +12,9 @@
   }
 
   .about-wrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     @include respond(phone) {
-      padding-bottom: 5rem;
+      // padding-bottom: 5rem;
       grid-template-columns: 1fr;
     }
 

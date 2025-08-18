@@ -9,28 +9,51 @@ VanillaTilt.init(tilt, {
 
 var theme_toggler = document.getElementById('theme-toggler');
 
-toggleTheme(theme_toggler.checked);
+// Load saved theme on page load
+loadSavedTheme();
 
 theme_toggler.addEventListener('click', function(e) {
   toggleTheme(this.checked);
+  // Save the current theme state
+  saveTheme(this.checked);
 });
 
 function toggleTheme(value) {
   var targets = document.querySelector('.light-mode');
   var navLogoImg = document.querySelector('.nav-logo img');
+  const navLinks = document.querySelector('.nav-links');
 
+  navLinks.classList.remove('active');
 
   if (value) {
-    // targets.forEach(element => {
-      targets.classList.add('dark-mode');
-      console.log('hello');
-      // Replace the image by setting a new src
-      navLogoImg.src = 'assets/r-blue.png';
+    targets.classList.add('dark-mode');
+    // Replace the image by setting a new src.
+    navLogoImg.src = 'assets/r-blue.png';
   }
   else {
     targets.classList.remove('dark-mode');
-      navLogoImg.src = 'assets/r-purple.png';
+    navLogoImg.src = 'assets/r-purple.png';
   }
+}
+
+function saveTheme(isDark) {
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+function loadSavedTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  
+  // If no saved theme, default to light mode
+  if (savedTheme === null) {
+    theme_toggler.checked = false;
+    toggleTheme(false);
+    return;
+  }
+  
+  // Apply saved theme
+  const isDark = savedTheme === 'dark';
+  theme_toggler.checked = isDark;
+  toggleTheme(isDark);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -55,11 +78,18 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-// const menuToggle = document.querySelector('#mobile-menu');
-// const nav = document.querySelector('.nav');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
 
-// menuToggle.addEventListener('click', function () {
-//   menuToggle.classList.toggle('active');
-//   nav.classList.toggle('active');
-// });
+const linkToggles = document.querySelectorAll('.nav-links-a');
+
+linkToggles.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+  
